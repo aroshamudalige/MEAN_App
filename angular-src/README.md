@@ -1,4 +1,4 @@
-# Awesome Bucketlist app
+# Frontend of the web app
 
 Run `npm install` to get started
 
@@ -9,3 +9,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `public/` directory. Use the `-prod` flag for a production build.
+
+Author: Arosha
