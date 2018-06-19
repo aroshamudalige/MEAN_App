@@ -1,0 +1,18 @@
+<div class="container">
+
+    <form (ngSubmit)="onSubmit()">
+      <div  class="form-group">
+        <label for="sender"><h4>Your Name</h4></label>
+        <input class="col-sm-12" type="text" class="form-control" [(ngModel)]="newList.sender" name="sender" required>
+      </div>
+    <br>
+      <div  class="form-group">
+        <label for="message"><h4>Comment</h4></label>
+        <div class="control-field">
+          <textarea class="form-control" cols="15" rows="5" name="message" tabindex="3" [(ngModel)]="newList.message" required></textarea>
+        </div>
+      </div>
+      <button type="submit" class="push-button-down btn btn-success">Submit</button>
+
+    </form>
+</div>

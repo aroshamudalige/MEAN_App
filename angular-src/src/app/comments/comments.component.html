@@ -1,0 +1,24 @@
+<section id="one">
+    <div class="inner">
+        <h2>Leave a comment</h2>
+        <app-add-list></app-add-list>
+    </div>
+    <div class="inner">
+      <h2>What others say!</h2>
+      <table id="table" class="table table-hover table-mc-light-blue">
+        <thead>
+          <tr class="align-left">
+            <th class="align-left">Name</th>
+            <th class="align-left">Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let list of lists">
+            <td>{{list.sender}}</td>
+            <td>{{list.message}}</td>
+          </tr>
+        </tbody>
+     </table>
+
+    </div>
+</section>
