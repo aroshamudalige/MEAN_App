@@ -640,7 +640,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"banner\">\n    <div class=\"inner\">\n      <img src=\"../../assets/images/Me.jpg\" alt=\"Avatar\" class=\"avatar\">\n      <h3>Arosha Mudalige - <span> Arosha Mudalige and I am an undergraduate at <br />\n        University of Colombo School of Computing, Sri Lanka</span></h3>\n    </div>\n</section>\n"
+module.exports = "<section id=\"banner\">\n    <div class=\"inner\">\n      <img src=\"../../assets/images/Me.jpg\" alt=\"Avatar\" class=\"avatar\">\n      <h3>Arosha Mudalige - <span> I am an undergraduate at <br />\n        University of Colombo School of Computing, Sri Lanka</span></h3>\n    </div>\n</section>\n"
 
 /***/ }),
 

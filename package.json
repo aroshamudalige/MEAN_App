@@ -7,10 +7,11 @@
     "start": "node app"
   },
   "dependencies": {
+    "body-parser": "*",
+    "cors": "~2.8.3",
     "express": "~4.15.3",
     "mongoose": "~4.11.0",
-    "cors": "~2.8.3",
-    "body-parser": "*"
+    "nexmo": "^2.3.2"
   },
   "keywords": [
     "MEAN",

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const messagelist = require('../models/List');
+const Nexmo = require('nexmo');
 
 router.get('/',(req,res) => {
 	messagelist.getAllMsgs((err, lists)=> {
@@ -16,6 +17,10 @@ router.get('/',(req,res) => {
 });
 
 router.post('/', (req,res,next) => {
+	const nexmo = new Nexmo({
+		apiKey: '4c71cae1',
+		apiSecret: 'RmpMpZ7Y2GrzpjnJ'
+	  });
 	console.log(req.body);
 	let newList = new messagelist({
 		sender: req.body.sender,
@@ -30,6 +35,18 @@ router.post('/', (req,res,next) => {
 			res.json({success:true, message: "Added successfully."});
 	
 	});
+	//const text = `You have a new comment by ${newList.sender} - ${newList.message} \n`;
+	const text = `New comment - ${newList.message} `;
+	nexmo.message.sendSms(
+		'94770177440', '+94770177440', text, {type: 'unicode'},
+		(err, responseData) => {
+			if(err){
+				console.log(err);
+			}else{
+				console.log(responseData);
+			}
+		}
+	);
 });
 
 
