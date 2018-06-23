@@ -137,12 +137,12 @@ var AddListComponent = (function () {
     };
     AddListComponent.prototype.onSubmit = function (form) {
         var _this = this;
-        console.log(this.newList.message);
         this.listServ.addList(this.newList).subscribe(function (response) {
             if (response.success === true) {
                 _this.addList.emit(_this.newList);
             }
         });
+        alert('Thank you for your feedback! Your comment is submitted for reviewing.');
     };
     return AddListComponent;
 }());
@@ -381,7 +381,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".blogimage {\r\n  background-color: #e5474b;\r\n  color: #f2a3a5;\r\n  padding: 13em 0 11em 0;\r\n  background-color: #0c0c0c;\r\n  background-image: url(" + __webpack_require__("./src/assets/images/blog.jpg") + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: 15% left;\r\n  text-align: left;\r\n  position: relative;\r\n  z-index: 9999;\r\n}\r\n\r\n#oneblog {\r\n  padding: 5em 0 17.5em 0;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".blogimage {\r\n  background-color: #e5474b;\r\n  color: #f2a3a5;\r\n  padding: 12.5em 0 11em 0;\r\n  background-color: #0c0c0c;\r\n  background-image: url(" + __webpack_require__("./src/assets/images/blog.jpg") + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: 15% left;\r\n  text-align: left;\r\n  position: relative;\r\n  z-index: 9999;\r\n}\r\n\r\n#oneblog {\r\n  padding: 5em 0 17.5em 0;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -442,7 +442,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".commentpage {\r\n  background-color: #f8f2f20e;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -455,7 +455,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/comments/comments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"one\">\n    <div class=\"inner\">\n      <h2>Leave a comment</h2>\n      <app-add-list></app-add-list>\n      <h2>What others say!</h2>\n      <table id=\"table\" class=\"table table-hover table-mc-light-blue\">\n        <thead>\n          <tr class=\"align-left\">\n            <th class=\"align-left\">Name</th>\n            <th class=\"align-left\">Comment</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let list of lists\">\n            <td>{{list.sender}}</td>\n            <td>{{list.message}}</td>\n          </tr>\n        </tbody>\n     </table>\n\n    </div>\n</section>\n"
+module.exports = "<section id=\"one\" class=\"commentpage\">\n    <div class=\"inner\">\n      <h2>Leave a comment</h2>\n      <app-add-list></app-add-list>\n      <h2>What others say!</h2>\n      <table id=\"table\" class=\"table table-hover table-mc-light-blue\">\n        <thead>\n          <tr class=\"align-left\">\n            <th class=\"align-left\">Name</th>\n            <th class=\"align-left\">Comment</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let list of lists\">\n            <td>{{list.sender}}</td>\n            <td>{{list.message}}</td>\n          </tr>\n        </tbody>\n     </table>\n\n    </div>\n</section>\n"
 
 /***/ }),
 
@@ -513,7 +513,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".contatctimage {\r\n  background-color: #e5474b;\r\n  color: #f2a3a5;\r\n  padding: 8em 0 9em 0;\r\n  background-color: #0c0c0c;\r\n  background-image: url(" + __webpack_require__("./src/assets/images/blog.jpg") + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: 15% left;\r\n  text-align: left;\r\n  position: relative;\r\n  z-index: 9999;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -526,7 +526,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/contact/contact.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"one\">\n    <div class=\"inner\">\n        <p>\n          contact works!\n        </p>\n    </div>\n</section>"
+module.exports = "<section class=\"contatctimage\">\n    <div class=\"inner\">\n      <h3>Email: aroshamudalige1@gmail.com</h3>\n      <h3>Tel: +94 770 177 440</h3>\n      <div>\n        <button type=\"button\" onclick=\"location.href='https://facebook.com'\" class=\"btn btn-fb waves-light\" mdbWavesEffect><i class=\"fa fa-facebook\"></i></button>\n        <button type=\"button\" onclick=\"location.href='https://twitter.com'\"class=\"btn btn-tw waves-light\" mdbWavesEffect><i class=\"fa fa-twitter\"></i></button>\n        <button type=\"button\" onclick=\"location.href='https://google.com'\"class=\"btn btn-gplus waves-light\" mdbWavesEffect><i class=\"fa fa-google-plus\"></i></button>\n        <button type=\"button\" onclick=\"location.href='https://linkedin.com'\" class=\"btn btn-li waves-light\" mdbWavesEffect><i class=\"fa fa-linkedin\"></i></button>\n      </div>\n    </div>\n</section>\n"
 
 /***/ }),
 
@@ -635,7 +635,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".avatar {\r\n    vertical-align: middle;\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n}", ""]);
+exports.push([module.i, ".avatar {\r\n    vertical-align: middle;\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n}\r\n", ""]);
 
 // exports
 

@@ -22,34 +22,35 @@ router.post("/", (req, res, next) => {
     apiKey: "4c71cae1",
     apiSecret: "RmpMpZ7Y2GrzpjnJ"
   });
-  console.log(req.body);
   let newList = new messagelist({
     sender: req.body.sender,
     message: req.body.message,
     approved: false
   });
-  messagelist.addList(newList, (err, list) => {
-    if (err) {
-      res.json({
-        success: false,
-        message: `Failed to create a new list. Error: ${err}`
-      });
-    } else res.json({ success: true, message: "Added successfully." });
-  });
-  const text = `Comment from ${newList.sender} is waiting approval.`;
-  nexmo.message.sendSms(
-    "94770177440",
-    "+94770177440",
-    text,
-    { type: "unicode" },
-    (err, responseData) => {
+  if (newList.sender !== null && newList.message !== null) {
+    messagelist.addList(newList, (err, list) => {
       if (err) {
-        console.log(err);
-      } else {
-        console.log(responseData);
+        res.json({
+          success: false,
+          message: `Failed to create a new list. Error: ${err}`
+        });
+      } else res.json({ success: true, message: "Added successfully." });
+    });
+    const text = `Comment from ${newList.sender} is waiting approval.`;
+    nexmo.message.sendSms(
+      "94770177440",
+      "+94770177440",
+      text,
+      { type: "unicode" },
+      (err, responseData) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(responseData);
+        }
       }
-    }
-  );
+    );
+  }
 });
 
 module.exports = router;
