@@ -17,6 +17,9 @@ import { CommentsComponent } from './comments/comments.component';
 import { AddListComponent } from './add-list/add-list.component';
 
 import { ListService } from './services/list.service';
+import {
+  ReactiveFormsModule
+} from '@angular/forms';
 
 const routes: Routes = [
   {path: 'admin', component: AdminComponent},
@@ -49,6 +52,7 @@ const routes: Routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [ListService],

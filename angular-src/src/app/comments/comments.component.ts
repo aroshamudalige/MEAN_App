@@ -22,11 +22,4 @@ export class CommentsComponent implements OnInit {
     this.listServ.getAllMsgs().subscribe(response => this.lists = response, )
 
   }
-  // messages: any;
-
-  // constructor(private _dataService: DataService) {
-  //   this._dataService.getComments()
-  //     .subscribe(res => this.messages = res);
-  //     console.log('ffdsfgf: ' +  this.messages);
-  // }
 }

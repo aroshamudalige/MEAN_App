@@ -95,7 +95,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/add-list/add-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n    <form (ngSubmit)=\"onSubmit()\">\n      <div  class=\"form-group\">\n        <label for=\"sender\"><h4>Your Name</h4></label>\n        <input class=\"col-sm-12\" type=\"text\" class=\"form-control\" [(ngModel)]=\"newList.sender\" name=\"sender\" required>\n      </div>\n    <br>\n      <div  class=\"form-group\">\n        <label for=\"message\"><h4>Comment</h4></label>\n        <div class=\"control-field\">\n          <textarea class=\"form-control\" cols=\"15\" rows=\"5\" name=\"message\" tabindex=\"3\" [(ngModel)]=\"newList.message\" required></textarea>\n        </div>\n      </div>\n      <button type=\"submit\" class=\"push-button-down btn btn-success\">Submit</button>\n\n    </form>\n</div>\n"
+module.exports = "<form ngForm [formGroup]=\"complexForm\" (ngSubmit)=\"onSubmit(complexForm.value); complexForm.reset();\">\n\n    <div  class=\"form-group\">\n        <label for=\"sender\"><h4>Your Name</h4></label>\n        <input class=\"col-sm-12\" type=\"text\" class=\"form-control\" [formControl]=\"complexForm.controls['sender']\" [(ngModel)]=\"newList.sender\" name=\"sender\" required>\n        <div [hidden]=\"complexForm.controls['sender'].valid\" class=\"alert alert-danger\">\n          Your name is required\n        </div>\n    </div>\n\n    <br>\n\n    <div  class=\"form-group\">\n        <label for=\"message\"><h4>Comment</h4></label>\n        <div class=\"control-field\">\n          <textarea class=\"form-control\" cols=\"15\" rows=\"5\" [formControl]=\"complexForm.controls['message']\" name=\"message\" tabindex=\"3\" [(ngModel)]=\"newList.message\" required></textarea>\n        </div>\n        <div [hidden]=\"complexForm.controls['message'].valid\" class=\"alert alert-danger\">\n            This field is required\n        </div>\n    </div>\n\n    <button type=\"submit\" class=\"push-button-down btn btn-success\" [disabled]=\"!complexForm.valid\">Submit</button>\n    <button type=\"reset\" class=\"push-button-down btn btn-success\">Reset</button>\n\n</form>\n"
 
 /***/ }),
 
@@ -105,6 +105,7 @@ module.exports = "<div class=\"container\">\n\n    <form (ngSubmit)=\"onSubmit()
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_list_service__ = __webpack_require__("./src/app/services/list.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -117,10 +118,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AddListComponent = (function () {
-    function AddListComponent(listServ) {
+    function AddListComponent(listServ, fb) {
         this.listServ = listServ;
         this.addList = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* EventEmitter */]();
+        this.complexForm = fb.group({
+            'sender': [null, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* Validators */].required],
+            'message': [null, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* Validators */].required],
+        });
     }
     AddListComponent.prototype.ngOnInit = function () {
         this.newList = {
@@ -129,7 +135,7 @@ var AddListComponent = (function () {
             _id: ''
         };
     };
-    AddListComponent.prototype.onSubmit = function () {
+    AddListComponent.prototype.onSubmit = function (form) {
         var _this = this;
         console.log(this.newList.message);
         this.listServ.addList(this.newList).subscribe(function (response) {
@@ -150,10 +156,10 @@ AddListComponent = __decorate([
         template: __webpack_require__("./src/app/add-list/add-list.component.html"),
         styles: [__webpack_require__("./src/app/add-list/add-list.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_list_service__["a" /* ListService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_list_service__["a" /* ListService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_list_service__["a" /* ListService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_list_service__["a" /* ListService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormBuilder */]) === "function" && _c || Object])
 ], AddListComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=add-list.component.js.map
 
 /***/ }),
@@ -320,6 +326,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_13__admin_admin_component__["a" /* AdminComponent */] },
     { path: '', component: __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */] },
@@ -354,6 +361,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* ReactiveFormsModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(routes)
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_16__services_list_service__["a" /* ListService */]],
@@ -373,7 +381,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".blogimage {\r\n  background-color: #e5474b;\r\n  color: #f2a3a5;\r\n  padding: 13em 0 11em 0;\r\n  background-color: #0c0c0c;\r\n  background-image: url(" + __webpack_require__("./src/assets/images/blog.jpg") + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: 15% left;\r\n  text-align: left;\r\n  position: relative;\r\n  z-index: 9999;\r\n}\r\n\r\n#oneblog {\r\n  padding: 5em 0 17.5em 0;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -386,7 +394,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/blog/blog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"blogimage\">\n    <div class=\"inner\">\n        <ul class=\"actions\">\n\t\t\t<li><a href=\"https://whatiknow94.wordpress.com/\" class=\"button alt\" target=\"_blank\">Visit Blog</a></li>\n\t\t</ul>\n    </div>\n</section>\n"
+module.exports = "<section id=\"oneblog\" class=\"blogimage\">\n    <div class=\"inner\">\n        <ul class=\"actions\">\n\t\t\t<li><a href=\"https://whatiknow94.wordpress.com/\" class=\"button alt\" target=\"_blank\">Visit Blog</a></li>\n\t\t</ul>\n    </div>\n</section>\n"
 
 /***/ }),
 
@@ -447,7 +455,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/comments/comments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"one\">\n    <div class=\"inner\">\n        <h2>Leave a comment</h2>\n        <app-add-list></app-add-list>\n    </div>\n    <div class=\"inner\">\n      <h2>What others say!</h2>\n      <table id=\"table\" class=\"table table-hover table-mc-light-blue\">\n        <thead>\n          <tr class=\"align-left\">\n            <th class=\"align-left\">Name</th>\n            <th class=\"align-left\">Comment</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let list of lists\">\n            <td>{{list.sender}}</td>\n            <td>{{list.message}}</td>\n          </tr>\n        </tbody>\n     </table>\n\n    </div>\n</section>\n"
+module.exports = "<section id=\"one\">\n    <div class=\"inner\">\n      <h2>Leave a comment</h2>\n      <app-add-list></app-add-list>\n      <h2>What others say!</h2>\n      <table id=\"table\" class=\"table table-hover table-mc-light-blue\">\n        <thead>\n          <tr class=\"align-left\">\n            <th class=\"align-left\">Name</th>\n            <th class=\"align-left\">Comment</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let list of lists\">\n            <td>{{list.sender}}</td>\n            <td>{{list.message}}</td>\n          </tr>\n        </tbody>\n     </table>\n\n    </div>\n</section>\n"
 
 /***/ }),
 
@@ -830,23 +838,18 @@ var ListService = (function () {
     }
     ListService.prototype.getAllMsgs = function () {
         var URI = this.serverApi + "/messagelist/";
-        return this.http.get(URI)
+        return this.http
+            .get(URI)
             .map(function (res) { return res.json(); })
             .map(function (res) { return res.lists; });
     };
-    // public deleteList(listId : string) {
-    //   let URI = `${this.serverApi}/messagelist/${listId}`;
-    //     let headers = new Headers;
-    //     headers.append('Content-Type', 'application/json');
-    //     return this.http.delete(URI, {headers: headers})
-    //     .map(res => res.json());
-    // }
     ListService.prototype.addList = function (list) {
         var URI = this.serverApi + "/messagelist/";
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */];
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         var body = JSON.stringify({ sender: list.sender, message: list.message });
         headers.append('Content-Type', 'application/json');
-        return this.http.post(URI, body, { headers: headers })
+        return this.http
+            .post(URI, body, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     return ListService;
@@ -858,6 +861,13 @@ ListService = __decorate([
 
 var _a;
 //# sourceMappingURL=list.service.js.map
+
+/***/ }),
+
+/***/ "./src/assets/images/blog.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "blog.b8aa6a7b050a0caca84a.jpg";
 
 /***/ }),
 
