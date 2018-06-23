@@ -5,13 +5,14 @@ const MessagelistSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    message: String
+    message: String,
+    approved: Boolean
 });
 
 const MessageList = module.exports = mongoose.model('MessageList', MessagelistSchema );
 
 module.exports.getAllMsgs = (callback) => {
-	MessageList.find(callback);
+	MessageList.find({"approved": true}, callback);
 }
 
 module.exports.addList = (newList, callback) => {

@@ -24,7 +24,8 @@ router.post('/', (req,res,next) => {
 	console.log(req.body);
 	let newList = new messagelist({
 		sender: req.body.sender,
-		message: req.body.message
+		message: req.body.message,
+		approved: false
 	});
 	messagelist.addList(newList,(err, list) => {
 		if(err) {
@@ -36,7 +37,7 @@ router.post('/', (req,res,next) => {
 	
 	});
 	//const text = `You have a new comment by ${newList.sender} - ${newList.message} \n`;
-	const text = `New comment - ${newList.message} `;
+	const text = `Comment from ${newList.sender} is waiting approval.`;
 	nexmo.message.sendSms(
 		'94770177440', '+94770177440', text, {type: 'unicode'},
 		(err, responseData) => {
