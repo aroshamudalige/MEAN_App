@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".aboutimage {\r\n  background-color: #ffffff;\r\n  color: #f2a3a5;\r\n  padding: 6.5em 0 7em 0;\r\n  background-color: #0c0c0c;\r\n  background-image: url(" + __webpack_require__("./src/assets/images/about.jpg") + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: 15% left;\r\n  text-align: left;\r\n  position: relative;\r\n  z-index: 9999;\r\n}\r\n\r\np{\r\n  color: #ffffff;\r\n  font-weight: 600;\r\n  text-align: justify;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/aboutme/aboutme.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"one\">\n        <div class=\"inner\">\n            <p>\n                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.\n            </p>\n        </div>\n</section>"
+module.exports = "<section class=\"aboutimage\">\n        <div class=\"inner\">\n            <p>\n                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.\n            </p>\n        </div>\n</section>\n"
 
 /***/ }),
 
@@ -513,7 +513,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".contatctimage {\r\n  background-color: #e5474b;\r\n  color: #f2a3a5;\r\n  padding: 8em 0 9em 0;\r\n  background-color: #0c0c0c;\r\n  background-image: url(" + __webpack_require__("./src/assets/images/blog.jpg") + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: 15% left;\r\n  text-align: left;\r\n  position: relative;\r\n  z-index: 9999;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".contatctimage {\r\n  background-color: #ffffff;\r\n  color: #f2a3a5;\r\n  padding: 8em 0 9em 0;\r\n  background-color: #0c0c0c;\r\n  background-image: url(" + __webpack_require__("./src/assets/images/contact.jpg") + ");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: 15% left;\r\n  text-align: left;\r\n  position: relative;\r\n  z-index: 9999;\r\n}\r\n\r\nh3{\r\n  color: #ffffff;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -635,7 +635,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".avatar {\r\n    vertical-align: middle;\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n}\r\n", ""]);
+exports.push([module.i, ".avatar {\r\n    vertical-align: middle;\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n}\r\n\r\nfigure {\r\n  margin-bottom: 1.5em;\r\n}\r\n", ""]);
 
 // exports
 
@@ -648,7 +648,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"banner\">\n    <div class=\"inner\">\n      <img src=\"../../assets/images/Me.jpg\" alt=\"Avatar\" class=\"avatar\">\n      <h3>Arosha Mudalige - <span> I am an undergraduate at <br />\n        University of Colombo School of Computing, Sri Lanka</span></h3>\n    </div>\n</section>\n"
+module.exports = "<section id=\"banner\">\n  <div class=\"inner\">\n    <figure>\n      <img src=\"../../assets/images/Me.jpg\" alt=\"Avatar\" class=\"avatar\">\n    </figure>\n    <h1>Arosha Mudalige</h1>\n    <p>Born and raised in Brooklyn. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the <a href=\"#\">Semantics</a>, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. </p>\n  </div>\n</section>\n"
 
 /***/ }),
 
@@ -864,10 +864,24 @@ var _a;
 
 /***/ }),
 
+/***/ "./src/assets/images/about.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "about.733e34959d6616039c3c.jpg";
+
+/***/ }),
+
 /***/ "./src/assets/images/blog.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "blog.b8aa6a7b050a0caca84a.jpg";
+
+/***/ }),
+
+/***/ "./src/assets/images/contact.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "contact.9cdb97b7113e6ca5b073.jpg";
 
 /***/ }),
 

@@ -412,7 +412,7 @@ module.exports = __webpack_require__.p + "fontawesome-webfont.c8ddf1e5e5bf3682bc
 /***/ "./src/assets/images/banner.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "banner.534c197e2c1eccede70e.jpg";
+module.exports = __webpack_require__.p + "banner.49bda69f9c010ea7f0b8.jpg";
 
 /***/ }),
 

@@ -1,0 +1,20 @@
+.aboutimage {
+  background-color: #ffffff;
+  color: #f2a3a5;
+  padding: 6.5em 0 7em 0;
+  background-color: #0c0c0c;
+  background-image: url("../../assets/images/about.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 15% left;
+  text-align: left;
+  position: relative;
+  z-index: 9999;
+}
+
+p{
+  color: #ffffff;
+  font-weight: 600;
+  text-align: justify;
+}
+

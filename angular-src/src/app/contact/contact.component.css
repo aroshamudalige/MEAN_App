@@ -1,14 +1,18 @@
 .contatctimage {
-  background-color: #e5474b;
+  background-color: #ffffff;
   color: #f2a3a5;
   padding: 8em 0 9em 0;
   background-color: #0c0c0c;
-  background-image: url("../../assets/images/blog.jpg");
+  background-image: url("../../assets/images/contact.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 15% left;
   text-align: left;
   position: relative;
   z-index: 9999;
+}
+
+h3{
+  color: #ffffff;
 }
 
