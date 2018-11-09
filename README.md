@@ -1,6 +1,6 @@
 # MEAN Stack: Developing an app with Angular 2+ and the Angular CLI
 
-This is a simple single page web application demonstrating popular a web stack called MEAN.
+This is a simple single page web application to demonstrate the popular web stack called MEAN.
 
 ## Requirements
 
@@ -28,5 +28,4 @@ should compile the static code into the root `public` directory.
 Run `npm start` to get this started!
 
 ## Author: Arosha Mudalige
-Hosted at https://mean-am.herokuapp.com/
 
